@@ -1,0 +1,37 @@
+{
+  "plug_0": {
+    "metadata": "http://localhost:8000/plug_0/metadata.json",
+    "requirements": "http://localhost:8000/plug_0/requirements.txt",
+    "data": "http://localhost:8000/plug_0/"
+  },
+  "plug_1": {
+    "metadata": "http://localhost:8000/plug_1/metadata.json",
+    "requirements": "http://localhost:8000/plug_1/requirements.txt",
+    "data": "http://localhost:8000/plug_1/"
+  },
+  "plug_2": {
+    "metadata": "http://localhost:8000/plug_2/metadata.json",
+    "requirements": "http://localhost:8000/plug_2/requirements.txt",
+    "data": "http://localhost:8000/plug_2/"
+  },
+  "plug_3": {
+    "metadata": "http://localhost:8000/plug_3/metadata.json",
+    "requirements": "http://localhost:8000/plug_3/requirements.txt",
+    "data": "http://localhost:8000/plug_3/"
+  },
+  "plug_4": {
+    "metadata": "http://localhost:8000/plug_4/metadata.json",
+    "requirements": "http://localhost:8000/plug_4/requirements.txt",
+    "data": "http://localhost:8000/plug_4/"
+  },
+  "plug_5": {
+    "metadata": "http://localhost:8000/plug_5/metadata.json",
+    "requirements": "http://localhost:8000/plug_5/requirements.txt",
+    "data": "http://localhost:8000/plug_5/"
+  },
+  "plug_6": {
+    "metadata": "http://localhost:8000/plug_6/metadata.json",
+    "requirements": "http://localhost:8000/plug_6/requirements.txt",
+    "data": "http://localhost:8000/plug_6/"
+  }
+}

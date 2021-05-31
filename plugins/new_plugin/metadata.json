@@ -1,0 +1,10 @@
+{
+  "name": "new_plugin",
+  "version": "0.1",
+  "module": "plugins.new_plugin",
+  "extract": false,
+  "depends_on": [
+    "plug_3"
+  ],
+  "init_after": []
+}

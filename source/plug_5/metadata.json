@@ -1,0 +1,8 @@
+{
+  "name": "plug_5",
+  "version": "0.4",
+  "module": "plugins.plug_5",
+  "extract": false,
+  "depends_on": [],
+  "init_after": []
+}
