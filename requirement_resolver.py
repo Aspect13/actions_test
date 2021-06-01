@@ -1,31 +1,26 @@
 from collections import defaultdict
 from pprint import pprint
+from types import MappingProxyType
 
 import pkg_resources
 
-from util import Plugin, plugin_folder, cprint, list_plugins
+from .util import Plugin, plugin_folder, cprint, list_plugins
 
 
 # global_env = pkg_resources.Environment()
 
 
-def add_entry(plugin_name):
-	plugin = Plugin(plugin_name)
-	cprint('adding entries for:', plugin_name)
+def add_entry(plugin: Plugin):
+	cprint('adding entries for:', plugin.name)
 	pkg_resources.working_set.add_entry(plugin.sp)
 
 
 def add_entries(plugins):
 	for p in plugins:
-		add_entry(Plugin(p).name)
+		add_entry(Plugin(p))
 
 
-def get_pending_requirements(plugin_name, mutable_result=None):
-	if mutable_result:
-		pending_requirements = mutable_result
-	else:
-		pending_requirements = defaultdict(list)
-
+def update_pending_requirements(plugin_name, pending_requirements):
 	plugin = Plugin(plugin_name)
 	cprint('reading requirements for:', plugin_name)
 
@@ -35,76 +30,80 @@ def get_pending_requirements(plugin_name, mutable_result=None):
 		try:
 			pkg_resources.working_set.resolve([r])
 		except pkg_resources.VersionConflict as e:
-			# pending_requirements[e.req.project_name].append({
-			# 	'plugin': plugin,
-			# 	'requirement': e.req
-			# })
-			# pending_requirements[e.dist.project_name].append({
-			# 	'plugin': 'CORE',
-			# 	'requirement': e.dist
-			# })
-			# cprint(e.dist, e.req, color='red')
-			raise e
+			req_status['conflict'][e.req.project_name].append({
+				'plugin': plugin,
+				'requirement': e.req
+			})
+			req_status['conflict'][e.dist.project_name].append({
+				'plugin': 'CORE',
+				'requirement': e.dist
+			})
+			# raise e
 		except pkg_resources.DistributionNotFound as e:
 			pending_requirements[e.req.project_name].append({
 				'plugin': plugin,
 				'requirement': e.req
 			})
 			cprint('\tto be installed:', e.req, color='green')
-	return pending_requirements
+
+
+
+
+
+
+
+
+
+
+
+
+
+def resolve_version_conflict(requirers):
+	status = 'safe'
+	for spec1, spec2 in map(lambda a, b: (a['requirement'].specifier, b['requirement'].specifier), requirers, requirers[1:]):
+		if spec1 != spec2:
+			if spec1 and spec2:
+				status = 'conflict'
+				break
+			else:
+				status = 'attention'
+	return status
+
+
+
+
+def resolve_version_conflicts(pending_requirements, req_status):
+	for req_name in pending_requirements:
+		if len(pending_requirements[req_name]) > 1:
+			req_status[resolve_version_conflict(pending_requirements[req_name])][req_name].append(pending_requirements[req_name])
+		else:
+			req_status['safe'][req_name].append(pending_requirements[req_name])
+
+
+
+
 
 
 if __name__ == '__main__':
 
 	add_entries(list_plugins())
+	req_status = MappingProxyType({
+		'safe': defaultdict(list),
+		'attention': defaultdict(list),
+		'conflict': defaultdict(list)
+	})
 	pending_requirements = defaultdict(list)
 	for p in list_plugins():
-		pending_requirements = get_pending_requirements(Plugin(p).name, mutable_result=pending_requirements)
+		update_pending_requirements(Plugin(p).name)
 
+	# resolve_version_conflicts(pending_requirements, req_status)
+	cprint('pending_requirements', color='blue')
 	pprint(pending_requirements, indent=3)
+	cprint('conflicting_requirements', color='red')
+	pprint(req_status['conflict'], indent=3)
+	cprint('safe_requirements', color='green')
+	pprint(req_status['safe'], indent=3)
+	cprint('attention_requirements', color='yellow')
+	pprint(req_status['attention'], indent=3)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def resolve_version_conflict(name, requirees):
-# 	cprint('trying to resolve version conflict for', name, color='yellow')
-# 	for i in requirees:
-# 		for ii in requirees:
-# 			cprint(i['requirement'].__dict__, ii['requirement'])
-# 			if i['requirement'] == ii['requirement']:
-# 				continue
-# 			v1, v2 = i['requirement'].specifier, ii['requirement'].specifier
-# 			if v1 in v2:
-# 				cprint(i, ii, 'ININININ')
-# 			else:
-# 				cprint(i, ii, 'NOT IN')
-#
-#
-#
-# def resolve_version_conflicts(pending_requirements):
-# 	for req_name in pending_requirements:
-# 		if len(pending_requirements[req_name]) > 1:
-# 			resolve_version_conflict(req_name, pending_requirements[req_name])
-# 	pass
-
-
-# resolve_version_conflicts(pending_requirements)
-
-
-
-
-# for p in plugin_folder.iterdir():
-# 	plugin = Plugin(p.name)
-# 	cprint('\n', p.name)
