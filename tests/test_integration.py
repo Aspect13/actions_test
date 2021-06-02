@@ -9,8 +9,12 @@ from ..requirement_resolver import add_entries, update_pending_requirements, res
 from ..util import list_plugins, Plugin
 
 
-def setup():
+async def setup():
     add_entries(list_plugins())
+    # from aiohttp import web
+    # app = web.Application()
+    # app.add_routes([web.static('/', './source', show_index=True)])
+    # web.run_app(app)
 
 
 @pytest.fixture(scope='module')
@@ -42,17 +46,22 @@ def test_attention(pending_requirements_setup, status_requirements_setup):
 
 
 def test_plugin_download():
-    import subprocess
+    # import subprocess
     plugins_to_download = set()
     plugins_to_update = set()
     plugins_local = set(list_plugins())
     tasks = []
 
-    http_server = subprocess.Popen(args=['python', '-m', 'http.server', '--directory', './source'], stdout=subprocess.PIPE)
+    # http_server = subprocess.Popen(args=['python', '-m', 'http.server', '--directory', './source'], stdout=subprocess.PIPE)
+
+
+
+
     try:
         asyncio.run(main(plugins_local, plugins_to_download, plugins_to_update, tasks))
     finally:
-        http_server.terminate()
+        # http_server.terminate()
+        app.shutdown()
         pass
 
     l1 = len(set(list_plugins()))

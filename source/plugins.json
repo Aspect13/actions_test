@@ -33,5 +33,15 @@
     "metadata": "http://localhost:8000/plug_6/metadata.json",
     "requirements": "http://localhost:8000/plug_6/requirements.txt",
     "data": "http://localhost:8000/plug_6/"
+  },
+  "auth_root": {
+    "metadata": "https://raw.githubusercontent.com/Aspect13/auth_root/test/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/auth_root/test/requirements.txt",
+    "data": "https://github.com/Aspect13/auth_root/archive/refs/heads/test.zip"
+  },
+  "auth_manager": {
+    "metadata": "https://raw.githubusercontent.com/Aspect13/auth_manager/test/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/auth_manager/test/requirements.txt",
+    "data": "https://github.com/Aspect13/auth_manager/archive/refs/heads/test.zip"
   }
 }
