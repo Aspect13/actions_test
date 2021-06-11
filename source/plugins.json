@@ -1,47 +1,27 @@
 {
-  "plug_0": {
-    "metadata": "http://localhost:8000/plug_0/metadata.json",
-    "requirements": "http://localhost:8000/plug_0/requirements.txt",
-    "data": "http://localhost:8000/plug_0/"
-  },
-  "plug_1": {
-    "metadata": "http://localhost:8000/plug_1/metadata.json",
-    "requirements": "http://localhost:8000/plug_1/requirements.txt",
-    "data": "http://localhost:8000/plug_1/"
-  },
-  "plug_2": {
-    "metadata": "http://localhost:8000/plug_2/metadata.json",
-    "requirements": "http://localhost:8000/plug_2/requirements.txt",
-    "data": "http://localhost:8000/plug_2/"
-  },
-  "plug_3": {
-    "metadata": "http://localhost:8000/plug_3/metadata.json",
-    "requirements": "http://localhost:8000/plug_3/requirements.txt",
-    "data": "http://localhost:8000/plug_3/"
-  },
-  "plug_4": {
-    "metadata": "http://localhost:8000/plug_4/metadata.json",
-    "requirements": "http://localhost:8000/plug_4/requirements.txt",
-    "data": "http://localhost:8000/plug_4/"
-  },
-  "plug_5": {
-    "metadata": "http://localhost:8000/plug_5/metadata.json",
-    "requirements": "http://localhost:8000/plug_5/requirements.txt",
-    "data": "http://localhost:8000/plug_5/"
-  },
-  "plug_6": {
-    "metadata": "http://localhost:8000/plug_6/metadata.json",
-    "requirements": "http://localhost:8000/plug_6/requirements.txt",
-    "data": "http://localhost:8000/plug_6/"
-  },
   "auth_root": {
-    "metadata": "https://raw.githubusercontent.com/Aspect13/auth_root/test/metadata.json",
-    "requirements": "https://raw.githubusercontent.com/Aspect13/auth_root/test/requirements.txt",
-    "data": "https://github.com/Aspect13/auth_root/archive/refs/heads/test.zip"
+    "metadata": "https://raw.githubusercontent.com/Aspect13/auth_root/main/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/auth_root/main/requirements.txt",
+    "data": "https://github.com/Aspect13/auth_root/archive/refs/heads/main.zip"
   },
   "auth_manager": {
-    "metadata": "https://raw.githubusercontent.com/Aspect13/auth_manager/test/metadata.json",
-    "requirements": "https://raw.githubusercontent.com/Aspect13/auth_manager/test/requirements.txt",
-    "data": "https://github.com/Aspect13/auth_manager/archive/refs/heads/test.zip"
+    "metadata": "https://raw.githubusercontent.com/Aspect13/auth_manager/main/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/auth_manager/main/requirements.txt",
+    "data": "https://github.com/Aspect13/auth_manager/archive/refs/heads/main.zip"
+  },
+  "auth_project": {
+    "metadata": "https://raw.githubusercontent.com/Aspect13/auth_project/main/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/auth_project/main/requirements.txt",
+    "data": "https://github.com/Aspect13/auth_project/archive/refs/heads/main.zip"
+  },
+  "auth_mappers": {
+    "metadata": "https://raw.githubusercontent.com/Aspect13/auth_mappers/main/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/auth_mappers/main/requirements.txt",
+    "data": "https://github.com/Aspect13/auth_mappers/archive/refs/heads/main.zip"
+  },
+  "auth_oidc": {
+    "metadata": "https://raw.githubusercontent.com/Aspect13/auth_oidc/main/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/auth_oidc/main/requirements.txt",
+    "data": "https://github.com/Aspect13/auth_oidc/archive/refs/heads/main.zip"
   }
 }
