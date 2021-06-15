@@ -23,5 +23,15 @@
     "metadata": "https://raw.githubusercontent.com/Aspect13/auth_oidc/main/metadata.json",
     "requirements": "https://raw.githubusercontent.com/Aspect13/auth_oidc/main/requirements.txt",
     "data": "https://github.com/Aspect13/auth_oidc/archive/refs/heads/main.zip"
+  },
+  "projects": {
+    "metadata": "https://raw.githubusercontent.com/Aspect13/projects/main/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/projects/main/requirements.txt",
+    "data": "https://github.com/Aspect13/projects/archive/refs/heads/main.zip"
+  },
+  "shared": {
+    "metadata": "https://raw.githubusercontent.com/Aspect13/shared/main/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/shared/main/requirements.txt",
+    "data": "https://github.com/Aspect13/shared/archive/refs/heads/main.zip"
   }
 }
