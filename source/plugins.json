@@ -33,5 +33,30 @@
     "metadata": "https://raw.githubusercontent.com/Aspect13/shared/main/metadata.json",
     "requirements": "https://raw.githubusercontent.com/Aspect13/shared/main/requirements.txt",
     "data": "https://github.com/Aspect13/shared/archive/refs/heads/main.zip"
+  },
+  "tasks": {
+    "metadata": "https://raw.githubusercontent.com/Aspect13/tasks/main/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/tasks/main/requirements.txt",
+    "data": "https://github.com/Aspect13/tasks/archive/refs/heads/main.zip"
+  },
+  "security": {
+    "metadata": "https://raw.githubusercontent.com/Aspect13/security/main/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/security/main/requirements.txt",
+    "data": "https://github.com/Aspect13/security/archive/refs/heads/main.zip"
+  },
+  "secrets": {
+    "metadata": "https://raw.githubusercontent.com/Aspect13/secrets/main/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/secrets/main/requirements.txt",
+    "data": "https://github.com/Aspect13/secrets/archive/refs/heads/main.zip"
+  },
+  "backend_performance": {
+    "metadata": "https://raw.githubusercontent.com/Aspect13/backend_performance/main/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/backend_performance/main/requirements.txt",
+    "data": "https://github.com/Aspect13/backend_performance/archive/refs/heads/main.zip"
+  },
+  "artifacts": {
+    "metadata": "https://raw.githubusercontent.com/Aspect13/artifacts/main/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/artifacts/main/requirements.txt",
+    "data": "https://github.com/Aspect13/artifacts/archive/refs/heads/main.zip"
   }
 }
