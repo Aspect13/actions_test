@@ -58,5 +58,10 @@
     "metadata": "https://raw.githubusercontent.com/Aspect13/artifacts/main/metadata.json",
     "requirements": "https://raw.githubusercontent.com/Aspect13/artifacts/main/requirements.txt",
     "data": "https://github.com/Aspect13/artifacts/archive/refs/heads/main.zip"
+  },
+  "theme": {
+    "metadata": "https://raw.githubusercontent.com/Aspect13/theme/main/metadata.json",
+    "requirements": "https://raw.githubusercontent.com/Aspect13/theme/main/requirements.txt",
+    "data": "https://github.com/Aspect13/theme/archive/refs/heads/main.zip"
   }
 }
