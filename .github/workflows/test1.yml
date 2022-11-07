@@ -4,11 +4,14 @@ on:
       - master
   workflow_dispatch:
   
+permissions: write-all
+
 jobs:
   trigger_zip_builder:
     runs-on: ubuntu-latest
     env:
-      TOKEN: ${{ secrets.TEST_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+      TEST_TOKEN: ${{ secrets.TEST_TOKEN }}
     steps:
     - name: echoing TOKEN
       run: echo $TOKEN
@@ -17,6 +20,14 @@ jobs:
         curl \
         -X POST \
         -H "Accept: application/vnd.github+json" \
-        -H "Authorization: Bearer $TOKEN" \
+        -H "Authorization: Bearer $TEST_TOKEN" \
+        https://api.github.com/repos/Aspect13/performance_post_processor/dispatches \
+        -d '{"event_type":"make_zip", "client_payload":{}}'
+    - name: triggering event with gh_token
+      run: | 
+        curl \
+        -X POST \
+        -H "Accept: application/vnd.github+json" \
+        -H "Authorization: Bearer $GITHUB_TOKEN" \
         https://api.github.com/repos/Aspect13/performance_post_processor/dispatches \
         -d '{"event_type":"make_zip", "client_payload":{}}'
