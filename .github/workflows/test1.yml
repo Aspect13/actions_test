@@ -26,5 +26,5 @@ jobs:
             "from_commit": "${{ github.sha }}",
             "initiator": "${{ github.repository }}"
           }
-        }' /
+        }' \
         --fail --silent
