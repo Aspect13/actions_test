@@ -13,6 +13,8 @@ jobs:
     steps:
     - name: echoing repo
       run: echo $PP_URL
+    - name: updating curl
+      run: apt upgrade curl
     - name: triggering event
       run: | 
         curl \
