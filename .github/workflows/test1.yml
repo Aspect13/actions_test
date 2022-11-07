@@ -8,7 +8,7 @@ jobs:
   trigger_zip_builder:
     runs-on: ubuntu-latest
     env:
-      PP_TOKEN: ${{ secrets.PP_TOKEN }}
+      PP_TOKEN: ${{ secrets.TEST_TOKEN_2 }}
       PP_URL: "https://api.github.com/repos/${{ github.repository_owner }}/performance_post_processor/dispatches"
     steps:
     - name: echoing repo
