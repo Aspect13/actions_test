@@ -8,8 +8,7 @@ jobs:
   
   trigger_zip_builder:
     runs-on: ubuntu-latest
-    permissions: 
-      contents: write
+    permissions: write-all
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
