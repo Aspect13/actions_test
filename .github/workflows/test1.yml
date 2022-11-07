@@ -8,25 +8,27 @@ jobs:
   trigger_zip_builder:
     runs-on: ubuntu-latest
     environment: main
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
-      TEST_TOKEN: ${{ secrets.TEST_TOKEN }}
+    # env:
+    #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+    #  TEST_TOKEN: ${{ secrets.TEST_TOKEN }}
     steps:
-    - name: echoing TOKEN
-      run: echo $TEST_TOKEN
+    - name: echoing repo
+      run: echo "api.github.com/repos/${{ github.repository }}/dispatches"
     - name: triggering event
       run: | 
         curl \
         -X POST \
         -H "Accept: application/vnd.github+json" \
-        -H "Authorization: Bearer $TEST_TOKEN" \
-        https://api.github.com/repos/Aspect13/performance_post_processor/dispatches \
-        -d '{"event_type":"make_zip", "client_payload":{}}'
+        -H "Authorization: Bearer ${{ secrets.TEST_TOKEN }}" \
+        https://api.github.com/repos/${{ github.repository }}/dispatches \
+        -d '{"event_type":"make_zip", "client_payload":{"from_commit": "${{ github.sha }}"}}' \
+        --fail
     - name: triggering event with gh_token
       run: | 
         curl \
         -X POST \
         -H "Accept: application/vnd.github+json" \
-        -H "Authorization: Bearer $GITHUB_TOKEN" \
+        -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
         https://api.github.com/repos/Aspect13/performance_post_processor/dispatches \
-        -d '{"event_type":"make_zip", "client_payload":{}}'
+        -d '{"event_type":"make_zip", "client_payload":{"from_commit": "${{ github.sha }}"}}' \
+        --fail
