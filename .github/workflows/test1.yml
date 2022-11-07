@@ -13,8 +13,6 @@ jobs:
     steps:
     - name: echoing repo
       run: echo $PP_URL
-    - name: updating curl
-      run: apt upgrade curl
     - name: triggering event
       run: | 
         curl \
@@ -23,4 +21,4 @@ jobs:
         -H "Authorization: Bearer $PP_TOKEN" \
         $PP_URL \
         -d '{"event_type":"make_zip", "client_payload":{"from_commit": "${{ github.sha }}", "initiator":"${{ github.repository }}"' \
-        --fail-with-body
+        --fail
