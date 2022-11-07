@@ -13,14 +13,14 @@ jobs:
     #  TEST_TOKEN: ${{ secrets.TEST_TOKEN }}
     steps:
     - name: echoing repo
-      run: echo "api.github.com/repos/${{ github.repository }}/dispatches"
+      run: echo "https://api.github.com/repos/${{ github.repository_owner }}/performance_post_processor/dispatches"
     - name: triggering event
       run: | 
         curl \
         -X POST \
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer ${{ secrets.TEST_TOKEN }}" \
-        https://api.github.com/repos/${{ github.repository }}/dispatches \
+        https://api.github.com/repos/${{ github.repository_owner }}/performance_post_processor/dispatches \
         -d '{"event_type":"make_zip", "client_payload":{"from_commit": "${{ github.sha }}"}}'
     - name: triggering event with gh_token
       run: | 
@@ -28,5 +28,5 @@ jobs:
         -X POST \
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-        https://api.github.com/repos/Aspect13/performance_post_processor/dispatches \
+        https://api.github.com/repos/${{ github.repository_owner }}/performance_post_processor/dispatches \
         -d '{"event_type":"make_zip", "client_payload":{"from_commit": "${{ github.sha }}"}}'
