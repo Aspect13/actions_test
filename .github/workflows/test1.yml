@@ -20,5 +20,5 @@ jobs:
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer $PP_TOKEN" \
         $PP_URL \
-        -d '{"event_type":"make_zip", "client_payload":{"from_commit": "${{ github.sha }}"}}' \
+        -d '{"event_type":"make_zip", "client_payload":{"from_commit": "${{ github.sha }}", "initiator":"${{ github.repository }}"' \
         --fail-with-body
