@@ -21,8 +21,7 @@ jobs:
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer ${{ secrets.TEST_TOKEN }}" \
         https://api.github.com/repos/${{ github.repository }}/dispatches \
-        -d '{"event_type":"make_zip", "client_payload":{"from_commit": "${{ github.sha }}"}}' \
-        --fail
+        -d '{"event_type":"make_zip", "client_payload":{"from_commit": "${{ github.sha }}"}}'
     - name: triggering event with gh_token
       run: | 
         curl \
@@ -30,5 +29,4 @@ jobs:
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
         https://api.github.com/repos/Aspect13/performance_post_processor/dispatches \
-        -d '{"event_type":"make_zip", "client_payload":{"from_commit": "${{ github.sha }}"}}' \
-        --fail
+        -d '{"event_type":"make_zip", "client_payload":{"from_commit": "${{ github.sha }}"}}'
