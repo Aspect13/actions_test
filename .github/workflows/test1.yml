@@ -9,12 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      SECRETS: ${{ secrets }}
     steps:
     - name: echoing GITHUB_TOKEN
       run: echo $GITHUB_TOKEN
-    - name: echoing SECRETS
-      run: echo $SECRETS
     - name: triggering event
       run: | 
         curl \
